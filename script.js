@@ -60,6 +60,16 @@ while(confirmLength <= 7 || confirmLength >= 51) {
   
       console.log(passwordCharacters)
   
+   
+      var randomPassword = ""
+      
+      for (var i = 0; i < confirmLength; i++) {
+        randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+        console.log(randomPassword)
+      }
+      // had to change return as it wasnt working, changed to the html
+      var passwordElement =  document.getElementById ("password")
+  passwordElement.innerHTML = randomPassword
   
 
 //Write password to the #password input
