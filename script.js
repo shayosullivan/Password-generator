@@ -14,6 +14,11 @@ var confirmNumericCharacter;
 var confirmUpperCase;
 var confirmLowerCase;
 
+// prompt for lenght of password
+function generatePassword() {
+    var confirmLength = (prompt("How many characters would you like your password to contain?"));
+  }
+  
 
 //Write password to the #password input
 function writePassword() {
