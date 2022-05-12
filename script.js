@@ -39,6 +39,27 @@ while(confirmLength <= 7 || confirmLength >= 51) {
         var confirmLowerCase = confirm("Click OK if you want to include lowercase characters");
         var confirmUpperCase = confirm("Click OK if you want to include uppercase characters");   
     } 
+
+    var passwordCharacters = []
+      
+    if (confirmSpecialCharacter) {
+      passwordCharacters = passwordCharacters.concat(specialChar)
+    }
+  
+    if (confirmNumericCharacter) {
+      passwordCharacters = passwordCharacters.concat(number)
+    }
+      
+    if (confirmLowerCase) {
+      passwordCharacters = passwordCharacters.concat(alphaLower)
+    }
+  
+    if (confirmUpperCase) {
+      passwordCharacters = passwordCharacters.concat(alphaUpper)
+    }
+  
+      console.log(passwordCharacters)
+  
   
 
 //Write password to the #password input
