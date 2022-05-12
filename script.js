@@ -25,6 +25,21 @@ while(confirmLength <= 7 || confirmLength >= 51) {
     var confirmLength = (prompt("How many characters would you like your password to contain?"));
     } 
 
+    // decided on what will be in the password
+    var confirmSpecialCharacter = confirm("Click OK if you want to include special characters");
+    var confirmNumericCharacter = confirm("Click OK if you want to include numeric characters");    
+    var confirmLowerCase = confirm("Click OK if you want to include lowercase characters");
+    var confirmUpperCase = confirm("Click OK if you want to include uppercase characters");
+
+     //loop if doesnt meet requirements
+     while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
+        alert("You must choose at least one parameter");
+        var confirmSpecialCharacter = confirm("Click OK if you want to include special characters");
+        var confirmNumericCharacter = confirm("Click OK if you want to include numeric characters");    
+        var confirmLowerCase = confirm("Click OK if you want to include lowercase characters");
+        var confirmUpperCase = confirm("Click OK if you want to include uppercase characters");   
+    } 
+  
 
 //Write password to the #password input
 function writePassword() {
