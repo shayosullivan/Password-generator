@@ -84,12 +84,6 @@ var confirmLowerCase;
 
 // prompt for lenght of password
 function generatePassword() {
-  // loop
-  while (confirmLength <= 7 || confirmLength >= 51) {
-    alert("Password length must be between 8-50 characters Try again");
-    //var confirmLength = (prompt("How many characters would you like your password to contain?"));
-  }
-
   // decided on what will be in the password
   var confirmSpecialCharacter = confirm(
     "Click OK if you want to include special characters"
@@ -125,39 +119,57 @@ function generatePassword() {
       "Click OK if you want to include uppercase characters"
     );
   }
+  var randomPassword = "";
 
   var passwordCharacters = [];
 
   if (confirmSpecialCharacter) {
     passwordCharacters = passwordCharacters.concat(specialChar);
+    randomPassword =
+      randomPassword +
+      specialChar[Math.floor(Math.random() * specialChar.length)];
   }
 
   if (confirmNumericCharacter) {
     passwordCharacters = passwordCharacters.concat(number);
+    randomPassword =
+      randomPassword + number[Math.floor(Math.random() * number.length)];
   }
 
   if (confirmLowerCase) {
     passwordCharacters = passwordCharacters.concat(alphaLower);
+    randomPassword =
+      randomPassword +
+      alphaLower[Math.floor(Math.random() * alphaLower.length)];
   }
 
   if (confirmUpperCase) {
     passwordCharacters = passwordCharacters.concat(alphaUpper);
+    randomPassword =
+      randomPassword +
+      alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
   }
 
   console.log(passwordCharacters);
 
-  var randomPassword = "";
-
-  for (var i = 0; i < confirmLength; i++) {
+  confirmLength = prompt(
+    "How many characters would you like your password to contain?"
+  );
+  // loop
+  while (confirmLength <= 7 || confirmLength >= 51) {
+    alert("Password length must be between 8-50 characters Try again");
+    confirmLength = prompt(
+      "How many characters would you like your password to contain?"
+    );
+  }
+  console.log(randomPassword);
+  for (var i = randomPassword.length; i < confirmLength; i++) {
     randomPassword =
       randomPassword +
       passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-    console.log(randomPassword);
+    //console.log(randomPassword);
   }
 
-  var confirmLength = prompt(
-    "How many characters would you like your password to contain?"
-  );
   // fixed the pre page prompt
   return randomPassword;
 }
